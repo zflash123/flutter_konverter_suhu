@@ -23,14 +23,18 @@ class MyApp extends StatelessWidget {
         ),
         body: Container(
           margin: const EdgeInsets.all(8),
-          child: TextFormField(
-            keyboardType: TextInputType.number,
-            inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.digitsOnly
+          child: Column(
+            children: [
+              TextFormField(
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
+                decoration: const InputDecoration(
+                  hintText: 'Masukkan Suhu Dalam Celcius'
+                ),
+              ),
             ],
-            decoration: const InputDecoration(
-              hintText: 'Masukkan Suhu Dalam Celcius'
-            ),
           ),
         ),
       ),

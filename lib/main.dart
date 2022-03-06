@@ -16,7 +16,27 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: "Konverter Suhu")
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Konverter Suhu"),
+        ),
+        body: Container(
+          margin: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              TextFormField(
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
+                decoration: const InputDecoration(
+                  hintText: 'Masukkan Suhu Dalam Celcius'
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -33,25 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Konverter Suhu"),
-      ),
-      body: Container(
-        margin: const EdgeInsets.all(8),
-        child: Column(
-          children: [
-            TextFormField(
-              keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly
-              ],
-              decoration: const InputDecoration(
-                hintText: 'Masukkan Suhu Dalam Celcius'
-              ),
-            ),
-          ],
-        ),
-      ),
+      
     );
   }
 }

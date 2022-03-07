@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         body: Container(
           margin: const EdgeInsets.all(8),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextFormField(
                 keyboardType: TextInputType.number,
@@ -33,27 +34,44 @@ class MyApp extends StatelessWidget {
                   hintText: 'Masukkan Suhu Dalam Celcius'
                 ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      Text('Suhu dalam Kelvin\n'),
+                      Text(
+                        '150',
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text('Suhu dalam Reamur\n'),
+                      Text(
+                        '200',
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size.fromHeight(50),
+                ),
+                onPressed: () {},
+                child: const Text('Konversi Suhu'),
+              ),
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      
     );
   }
 }

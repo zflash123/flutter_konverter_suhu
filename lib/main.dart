@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const KonvertSuhu());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class KonvertSuhu extends StatefulWidget {
+  const KonvertSuhu({Key? key}) : super(key: key);
+
+  @override
+  State<KonvertSuhu> createState() => _KonvertSuhuState();
+}
+
+class _KonvertSuhuState extends State<KonvertSuhu> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

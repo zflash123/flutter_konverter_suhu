@@ -13,6 +13,19 @@ class KonvertSuhu extends StatefulWidget {
 }
 
 class _KonvertSuhuState extends State<KonvertSuhu> {
+  TextEditingController inputcontroller = TextEditingController();
+
+  double _inputUser = 0;
+  double _kelvin = 0;
+  double _reamur = 0;
+
+  void convert(){
+    setState(() {
+      _inputUser = double.parse(inputcontroller.text);
+      _kelvin = _inputUser + 273.15;
+      _reamur = (_inputUser * 4) / 5;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,7 +60,7 @@ class _KonvertSuhuState extends State<KonvertSuhu> {
                     children: [
                       Text('Suhu dalam Kelvin\n'),
                       Text(
-                        '150',
+                        '$_kelvin',
                         style: TextStyle(
                           fontSize: 30,
                         ),
@@ -58,7 +71,7 @@ class _KonvertSuhuState extends State<KonvertSuhu> {
                     children: [
                       Text('Suhu dalam Reamur\n'),
                       Text(
-                        '200',
+                        '$_reamur',
                         style: TextStyle(
                           fontSize: 30,
                         ),
@@ -71,13 +84,34 @@ class _KonvertSuhuState extends State<KonvertSuhu> {
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size.fromHeight(50),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  convert();
+                },
                 child: const Text('Konversi Suhu'),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+class Input extends StatelessWidget {
+  const Input({
+    Key? key,
+    required this.inputController,
+  }) : super(key: key);
+
+  final TextEditingController inputController;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: inputController,
+      decoration: const InputDecoration(
+        hintText: 'Masukkan Suhu Dalam Celcius',
+      ),
+      keyboardType: TextInputType.number,
     );
   }
 }

@@ -37,7 +37,7 @@ class _KonvertSuhuState extends State<KonvertSuhu> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Konverter Suhu"),
+          title: const Text("Konverter Suhu"),
         ),
         body: Container(
           margin: const EdgeInsets.all(8),
@@ -48,7 +48,7 @@ class _KonvertSuhuState extends State<KonvertSuhu> {
               Output(kelvin: _kelvin, reamur: _reamur),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size.fromHeight(50),
+                  minimumSize: const Size.fromHeight(50),
                 ),
                 onPressed: () {
                   convert();
@@ -103,10 +103,10 @@ class Output extends StatelessWidget {
       children: [
         Column(
           children: [
-            Text('Suhu dalam Kelvin\n'),
+            const Text('Suhu dalam Kelvin\n'),
             Text(
               '$_kelvin',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 30,
               ),
             ),
@@ -114,10 +114,10 @@ class Output extends StatelessWidget {
         ),
         Column(
           children: [
-            Text('Suhu dalam Reamur\n'),
+            const Text('Suhu dalam Reamur\n'),
             Text(
               '$_reamur',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 30,
               ),
             ),
